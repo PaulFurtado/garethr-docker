@@ -23,6 +23,10 @@ Puppet::Type.newtype(:docker_network) do
 		desc 'The range of IP addresses used by the network'
 	end
 
+	newparam(:internal) do
+		desc 'Restrict external access to the network'
+	end
+
 	newproperty(:ipam_driver) do
 		desc 'The IPAM (IP Address Management) driver'
 	end

@@ -18,6 +18,7 @@ Puppet::Type.type(:docker_network).provide(:ruby) do
       ['--subnet=%s',       :subnet],
       ['--gateway=%s',      :gateway],
       ['--ip-range=%s',     :ip_range],
+      ['--internal=%s',     :internal],
       ['--ipam-driver=%s',  :ipam_driver],
       ['--aux-address=%s',  :aux_address],
       ['--opt=%s',          :options],
@@ -45,6 +46,7 @@ Puppet::Type.type(:docker_network).provide(:ruby) do
 			new({
 				:name => name,
 				:id => obj['Id'],
+				:internal => obj['Internal'],
 				:ipam_driver => obj['IPAM']['Driver'],
 				:subnet => subnet,
 				:ensure => :present,
